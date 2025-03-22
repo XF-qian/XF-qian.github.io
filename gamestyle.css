@@ -1,0 +1,154 @@
+.startScreen{
+  position: fixed;
+  z-index: 0;
+  margin: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #DAA520;
+}
+.win{
+  display: none;
+  z-index: 7;
+  margin: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  background-color: #DAA520;
+}
+.title{
+  position: fixed;
+  top:40%;
+  left:50%;
+  font-size: 100px;
+  color:#C71585;
+transform: translate(-50%, -50%);
+  font-family:"Aa疯狂原始人";
+}
+.startWord{
+  color:#7d1c06;
+  font-family:"Microsoft YaHei";
+}
+.gameRoom{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #C71585;
+}
+
+.sofaScreen{
+  display:none;
+  position:relative;
+  z-index:3;
+
+  width:600px;
+  height:200px;
+  border-radius: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #59144c;
+
+  justify-content: center;
+  align-items: center;
+  background-color:#962a82;
+  margin: 50px auto;
+}
+
+.wordScreen{
+  display: none;
+  position:absolute;
+  z-index:4;
+
+  top:50%;
+  left:50%;
+  width:95%;
+  height: 70%;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  background-color:#261723;
+}
+p{
+  position: absolute;
+  margin: 0;
+  top:50%;
+  left:50%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  font-family:"Microsoft YaHei";
+  color:white;
+}
+
+button{
+  position: absolute;
+  z-index:2;
+
+  bottom: 10px;
+  padding: 10px 20px;
+  background-color: #EE82EE;
+  color: white;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+  button:hover {
+    background-color: #DDA0DD;
+  }
+  .buttonNormal1{
+    left: 10px;
+  }
+
+  .buttonNormal2{
+    right: 10px;
+  }
+  .buttonStart1 , .buttonStart2{
+    position: absolute;
+    bottom: 250px
+  }
+  .buttonStart1{
+    left:450px;
+  }
+  .buttonStart2{
+    right:450px;
+  }
+  .roomDivider {
+    position: fixed;
+    padding: 10px 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 50px;
+  }
+
+
+  .flower, .carpet, .door {
+    position: fixed;
+    padding: 10px 20px;
+    width: 150px;
+    height: 50px;
+  }
+  .flower{
+    right:100px;
+    top:200px;
+  }
+  .carpet{
+    top:400px;
+    right:900px;
+  }
+.door{
+  top:400px;
+  right:200px;
+}
