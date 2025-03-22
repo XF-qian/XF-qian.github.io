@@ -2,32 +2,61 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>My first styled page</title>
-    <link rel="stylesheet" href="mystyle.css"
-    </head>
+    <title>离开😺<(￣︶￣)↗[GO!]房间</title>
+    <link rel="stylesheet" href="gamestyle.css">
+  </head>
+  <body>
+    <div id="satrtScreen" class="startScreen">
+        <div class="title">离开房间~</div>
+        <div class="startWord"> 准备好寻找离开这个房间的钥匙了吗？</div>
+        <button class="buttonStart1" id="buttonStart" >Ready</button>
+        <button class="buttonStart2" id="buttonnotStart">No</button>
+    </div>
 
-    <body>
-    <!-- 网站导航菜单 -->
-<ul class="navbar">
-  <li><a href="index.html">Home page</a>
-  <li><a href="musings.html">Musings</a>
-  <li><a href="town.html">My town</a>
-  <li><a href="links.html">Links</a>
-</ul>
-<!-- Main content -->
-<h1>My first styled page</h1>
+    <div id="gameRoom" class="gameRoom">
+      <p>请在当前房间中寻找线索吧~</p>
+      <button class="roomDivider" id="roomDivider">屏风</button>
+        <div class="sofaScreen" id="dividerMove">
+          <div class="wordScreen" id="wordScreen1">
+            <p id="moveDivider">屏风前有只小猫……不管了先挪开屏风吧。</p>
+          <button class="sofa" id="sofa">探索沙发</button>
+            <div class="sofaScreen" id="sofaScreen">
+              <div class="wordScreen" id="wordScreen2">
+                <p id=p1>沙发底下好像有什么东西……</p>
+                <button class="buttonNormal1" id="sofaLeave1">先走为妙</button>
+                <button class="buttonNormal2" id="sofaPaper">拿取物品</button>
 
-<p>Welcome to my styled page!
+                </div>
+              </div>
+            </div>
+          </div>
+      <button class="flower" id="flower">花</button>
+        <div class="sofaScreen" id="flower">
+          <p>咦？花盆后面有一把扫帚。</p>
+          <button class="buttonNormal" id="sofaLeave4">拿起扫帚返回房间</button>
+        </div>
+      <button class="carpet" id="carpet">地毯</button>
+        <div class="sofaScreen" id="getFish">
+          <p>沙发底下有一个小鱼干！！</p>
+          <button class="buttonNormal" id="sofaLeave5">拿起小鱼干返回房间</button>
 
-<p>It lacks images, but at least it has style.
-And it has links, even if they don't go
-anywhere&hellip;
 
-<p>There should be more here, but I don't know
-what yet.
-<!-- Sign and date the page, it's only polite! -->
-<address>Made 5 April 2004<br>
-  by myself.</address>
+        </div>
+      <button class="buttonNormal1" id="fish">使用小鱼干</button>
+        <div class="sofaScreen" id="haveCat">
+          <p>哇偶，猫咪被小鱼干吸引过来了……等等！什么东西掉下来了</p>
+          <button class="buttonNormal" id="sofaLeave6">拿起钥匙</button>
+        </div>
+      <button class="door" id="door">门</button>
+        <div class="sofaScreen" id="dooropen">
+          <p>门似乎锁着。</p>
 
-
+    <div id="win" class="win">
+              <p>YOU WIN!!!</p>
+              <p>哇偶！没想到你居然逃出来了，不过……离开的方法只有这一个吗？</p>
+    </div>
+        </div>
+    </div>
+    <script  src="script.js"></script>
+  </body>
 </html>
