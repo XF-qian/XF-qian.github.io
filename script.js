@@ -101,3 +101,7 @@ door.onclick = function() {
      alert("门似乎锁着");
  }
 }
+var fish = document.getElementById('fish')
+fish.onclick = function(){
+  alert( "小鱼干，但是人不能吃吧？");
+}
