@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBN | 科学护肤 精准有效</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        :root {
+            --primary-light: #D5D996;
+            --primary-dark: #95A056;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #777;
+            --divider: #e0e0e0;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo img {
+              height: 120px;
+              width: auto;
+              position: relative;
+              top: 20px; 
+          }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                        url('21.png') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: transparent;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border: 2px solid white;
+            transition: var(--transition);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+
+        .page-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-dark);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-dark);
+        }
+
+        .story-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        .story-image {
+            flex: 1;
+            height: 500px;
+            background: url('22.png') center/cover no-repeat;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+        #shop {
+            background-color: var(--light-bg);
+            padding: 100px 20px;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .product-item {
+            background: white;
+            border: 1px solid var(--divider);
+            padding: 30px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 300px;
+            background-color: #f9f9f9;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .product-item:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+
+        .product-desc {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+
+
+        .view-all-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px 0;
+            background-color: transparent;
+            border: 1px solid var(--primary-dark);
+            color: var(--primary-dark);
+            text-align: center;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-all-btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .view-all-btn i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .view-all-btn.expanded i {
+            transform: rotate(180deg);
+        }
+
+
+        .hidden-products {
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-light);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+
+        @media (max-width: 1024px) {
+            .product-grid, .hidden-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .story-content {
+                flex-direction: column;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links li {
+                margin-left: 25px;
+            }
+
+            .product-grid, .hidden-products {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="25.png" alt="HBN品牌logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#story">品牌故事</a></li>
+            <li><a href="#shop">商城</a></li>
+        </ul>
+    </nav>
+</header>
+      <section id="home">
+        <div class="hero-content">
+            <h1>专研成分，对抗肌肤老化</h1>
+            <p>探索HBN的核心科技，唤醒肌肤原生之美</p>
+            <a href="22.png" class="btn">立即购买</a>
+        </div>
+    </section>
+
+      <section id="story" class="page-section">
+        <div class="section-title">
+            <h2>品牌故事</h2>
+        </div>
+        <div class="story-content">
+            <div class="story-text">
+                <h3>专研成分，对抗肌肤老化</h3>
+                <p>HBN功效护肤品牌创立于2019年，以"拥有看得见效果"的创新理念，致力于让用户把每一分钱都花在有效成分上。</p>
+                <p>品牌坚持自主研发来验证产品功效，已拥有专利、权威SCI 论文发表、标准制定及独家原料等科研成果百余项，更引领性地通过大量权威人体功效实测，实现品牌100％面护产品均通过权威第三方人体功效检测，推动护肤品进入真功效时代，让"真功效"名副其实。</p>
+                 <p>作为国内A醇抗老开拓者和引领者',HBN较早推出的A 醇抗老系列，实现让高功效与温和并存，为数百万用户带来真实的肌肤焕变。</p>
+              </div>
+            <div class="story-image"></div>
+        </div>
+    </section>
+
+
+    <section id="shop">
+        <div class="products-container">
+            <div class="section-title">
+                <h2>明星产品</h2>
+            </div>
+            <div class="product-grid">
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="2.png" alt="早c 明星发光水">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">早C 明星发光水</h3>
+                        <p class="product-desc">双A醇+烟酰胺，精准抗老，改善细纹，提升肌肤弹性</p>
+                        <div class="product-price">¥329</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?id=729396705863'">立即购买</button>
+                    </div>
+                </div>
+
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="3.png" alt="晚A 双A醇精华乳">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">晚A 双A醇精华乳</h3>
+                        <p class="product-desc">提亮肤色，改善暗沉，补水保湿，焕发肌肤光泽</p>
+                        <div class="product-price">¥189</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?abbucket=16&id=601781806025&rn=9a0bdc8cea08dff2c16d62584abcd6d5&spm=a312a.7700824.w4011-21896908659.55.5ff01150b572HP&skuId=4949454084064'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="4.png" alt="咖啡因紧致修护眼霜">
+                    </div>
+                  <div class="product-info">
+                        <h3 class="product-title">咖啡因紧致修护眼霜</h3>
+                        <p class="product-desc">深度补水，强化屏障，修护肌底，提升肌肤抵抗力</p>
+                        <div class="product-price">¥269</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?id=636499715986&spm=a21xtw.29178619.0.0&pisk=gazKb8x8XOXnPcaKsWSMERJoas5GiGVEWJPXrYDHVReTNJMnE0M55cGoGHtBA7GSyRwlTvV5L8U-C2izxYDne4FzH1XcoZVUT4k5ntb0EyxL6qRBdH9k5cGryX93QDLzT4u5nCY5mZFULrdvLHGS11hoZb97F0g_1Al-F3wSdc9sMjuSP8iWfdGj9b9INv916jhyVUtBAdgsiXpWV8g56dMZN4GQF4Mbz_D64YT8m4xIKEv98EY0WXnKeUD9yyzMoDMXZAYJyvhivBVIBUT7WuE16TMC0CDr-vz-987282i807c8pwLQeSzaBfwfyEDQ_SqmYyskom3tp04QeTK-9o2LUvNBdHGxJvnbRcRC65n7XP33RT-4s5HIDVqGb9moJJEq3DsNQ8FtK8aKfpBiEoVgRcefIFer2oPowJQpR-szlr4AU2pmHbxC61Ky4DGwOQexTkhnmmhtn6Ik43oGcfHc61Ky4DGZ6xfgk3-rji1..'">立即购买</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="view-all-btn" id="viewAllBtn">
+                查看全部产品 <i class="fas fa-chevron-down"></i>
+            </div>
+
+
+            <div class="hidden-products" id="hiddenProducts">
+
+                <div class="product-item">
+                    <div class="product-image">
+                      <img src="6.png" alt="视黄醇精华乳2.0">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">视黄醇精华乳2.0</h3>
+                        <p class="product-desc">密集修护，提亮焕肤，补水保湿，恢复肌肤健康状态</p>
+                        <div class="product-price">¥129</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?abbucket=16&id=601781806025&rn=9a0bdc8cea08dff2c16d62584abcd6d5&spm=a312a.7700824.w4011-21896908659.55.5ff01150b572HP&skuId=4949454084064'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="7.png" alt="咖啡因眼霜3.0">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">咖啡因眼霜3.0</h3>
+                        <p class="product-desc">改善黑眼圈，淡化细纹，提亮眼周，焕发神采</p>
+                        <div class="product-price">¥249</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?spm=a21n57.1.item.427.1b20523c4j1W86&priceTId=2150446517356402424737531edee5&utparam=%7B%22aplus_abtest%22%3A%220540a30af8b8c999f492b946593781ef%22%7D&id=718390550117&ns=1&xxc=ad_ztc&skuId=5865457855706&pisk=gbkxFTGEXUY0KSwHnKOujZqsyKtkdQjq0SgfIO2goQg8PcP1IIy06R37rx4mm-a1BVminVDtbOEsfV-4SnRo0myaCeYnBpmq02GkFwHYl7ZS4kf_fQVXomwG0eYHKddfVRLv-q4DRk_7vkw_c5N6F3Egbtas556SVzrafZZ1h3n7zzZ1556sV8ZgDOZj5tw5VlZY5sZbC8w7Aza_CRgsVA3DWzsbSOhKi-mQaIBK_mk8DSUI2BP8NY1_3slgy_1-ebdTJm1NCOM8DSM9R-K6vScsYWkmXdBznDh7FlHwA1UT9fM0FxTWd7PsF4ZSohfa2fnsL-PcbOuLHVFIh7I1dmy_u8ESdhfUrYUm5xFWx9FgFvVQhbAyo52YvVMqkGBsR0mn37k9JaaZiky7XA-C6PF14GHnp1Oh-yEGG3KR_1Pb4Pmq3SHm-CI32yxvB15aa3r8-3KR_1Pb4uUHDhCN_7-P.'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="15.png" alt="黑盾防晒">
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-title">黑盾防晒</h3>
+                        <p class="product-desc">温和清洁，不紧绷，平衡水油，保持肌肤天然屏障</p>
+                        <div class="product-price">¥159</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?abbucket=16&id=781743049404&rn=919107180a54c79862d7f415f57ed5be&spm=a312a.7700824.w4011-21897001066.37.1d53157a3iet5x&skuId=5341046625798'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="9.png" alt="原白霜">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">原白霜</h3>
+                        <p class="product-desc">深层滋养，修复屏障，提亮肤色，改善干燥粗糙</p>
+                        <div class="product-price">¥289</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?id=649435569125'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="10.png" alt="双A醇晚霜2.0">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">双A醇晚霜2.0</h3>
+                        <p class="product-desc">清爽不油腻，持久防护，防水防汗</p>
+                      <div class="product-price">¥199</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?abbucket=16&id=601338256019&rn=01a52fefc5daa9c61f0e1c1f7901666d&spm=a312a.7700824.w4011-21896908659.57.5ff01150eQZJyX'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="11.png" alt="美白特证版发光水">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">美白特证版发光水</h3>
+                        <p class="product-desc">夜间密集修护，促进胶原蛋白生成，焕活肌肤</p>
+                        <div class="product-price">¥349</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?id=729396705863'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="12.png" alt="B5面霜">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">B5面霜</h3>
+                        <p class="product-desc">即刻补水，平衡PH值，为后续护肤打好基础</p>
+                        <div class="product-price">¥179</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?id=641343186329'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="13.png" alt="弹簧霜2.0">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">弹簧霜2.0</h3>
+                        <p class="product-desc">稳定维C配方，提亮肤色，淡化色斑，均匀肤色</p>
+                        <div class="product-price">¥299</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?abbucket=18&id=625648008111&ns=1&pisk=gkUq3lYqPZQVAUUVIb0w8Kk0GT0YgqXCuPMss5ViGxDmh5ci7821MxNGHRzZE5EfMc6v_IUzLFTfHiFM7VgGd9_CRSdxWVXQhCpk1KhZtnbssxmokfiAF_95RSFxBIJGOubBQAf9lKxiIR0oqflqSjmis0fr_XkiSxmME3cnEA0gIcAoqjhiijxmI4frTftDjAYgZ7cx_jc0IVfzZYhiaPN0sUlIm12-VTSCyKYE7SDySF4cW5De5Ac-LzkrmvmufFc7zjoqKSzmqjcrZzarA0O1F4VLV-cr8ZJKguVEofzOthkZbr3rUJ7HWbE03zmaP1Q3NqlZxVmysFVrzYnzl2bHUbEuGl4Y3C8iMraIbvnPsFnsryi3x-RO970msRnL59Lxn5VLJkgFuph4qWuP4m9tZFwTWoJMbmc-av1PaCfWF8rh6XAyXhnoJbkCGjt9Xmc-av1PahKtqXhrdsGf.&priceTId=2147831917356351390991319e16ce&skuId=5452720020870&spm=a21n57.1.item.235.1b20523c4j1W86&utparam=%7B%22aplus_abtest%22%3A%22a39b2553d9cd49b77579c5a5399035d9%22%7D&xxc=taobaoSearch'">立即购买</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="14.png" alt="厚皮精华">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">厚皮精华</h3>
+                        <p class="product-desc">强效保湿，修复屏障，舒缓敏感，增强肌肤抵抗力</p>
+                        <div class="product-price">¥279</div>
+                        <button class="add-to-cart" onclick="window.location.href='https://detail.tmall.com/item.htm?spm=a312a.7700824.w4011-21897001066.42.5f01157aoU1jCn&id=686320140073&rn=46d370b4f129d9fdacd8a591f1aa4919&abbucket=16'">立即购买</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>关于HBN</h3>
+                <p>HBN功效护肤品牌创立于2019年，以"拥有看得见效果"的创新理念，致力于让用户把每一分钱都花在有效成分上。</p>
+
+            </div>
+
+            <div class="footer-column">
+                <h3>快速链接</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#story">品牌故事</a></li>
+                    <li><a href="#shop">产品商城</a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> 0755-86562982</li>
+                    <li><i class="fas fa-envelope"></i> wy@honeymate.cn</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 广东省深圳市南山区深南大道9996号李宁大厦</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 HBN 美妆护肤品牌</p>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // 更新导航栏激活状态
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // 滚动时更新导航栏激活状态
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 立即购买按钮滚动到商城
+        document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#shop').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // 更新导航栏激活状态
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector('.nav-links a[href="#shop"]').classList.add('active');
+        });
+
+        // 查看全部产品功能
+        const viewAllBtn = document.getElementById('viewAllBtn');
+        const hiddenProducts = document.getElementById('hiddenProducts');
+
+        viewAllBtn.addEventListener('click', function() {
+            if (hiddenProducts.style.display === 'grid') {
+                hiddenProducts.style.display = 'none';
+                viewAllBtn.textContent = '查看全部产品';
+                viewAllBtn.classList.remove('expanded');
+            } else {
+                hiddenProducts.style.display = 'grid';
+                viewAllBtn.textContent = '收起产品';
+                viewAllBtn.classList.add('expanded');
+            }
+        });
+    </script>
+</body>
+</html>
